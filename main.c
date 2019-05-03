@@ -15,6 +15,21 @@ struct process {
 
 typedef struct process *processPointer;
 
+processPointer createProcess(char description[100]);
+void presentation();
+void menu(processPointer *processList);
+void processCreationFunctionality(processPointer *processList);
+
+int main() {
+
+    processPointer processList = NULL;
+
+    presentation();
+    menu(&processList);
+
+    return 0;
+}
+
 processPointer createProcess(char description[100]) {
 
     processPointer newProcess = (processPointer) malloc(sizeof(struct process));
@@ -37,7 +52,7 @@ void presentation() {
     _sleep(1000);
 }
 
-void menu() {
+void menu(processPointer *processList) {
     int menuSelectedOption = 0;
 
     system("cls");
@@ -55,7 +70,7 @@ void menu() {
 
     switch (menuSelectedOption) {
         case 1 :
-            printf("Agendamento de Processos Selecionado");
+            processCreationFunctionality(processList);
             break;
         case 2:
             printf("Consulta de Processos Selecionada");
@@ -68,24 +83,33 @@ void menu() {
             break;
         case 5:
             printf("Saindo do Sistema ...");
-            _sleep(10000);
+            _sleep(1000);
             system("exit");
             break;
         default:
             printf("A opcao selecionada nao e valida.");
             _sleep(1000);
-            menu();
+            menu(processList);
             break;
     }
-
 }
 
-int main() {
+void processCreationFunctionality(processPointer *processList){
+    int processQuantity = 0;
 
-    processPointer processList = NULL;
+    printf("cls");
+    _sleep(1000);
 
-    presentation();
-    menu();
+    printf("\n\nQual a quantidade de processos que você deseja agendar ?\n\n");
+    printf("R: ");
+    scanf("%d", &processQuantity);
 
-    return 0;
+    if(processQuantity == 0){
+        printf("A quantidade informada é nula, logo não serão agendados novos processos.\n\n");
+        menu(processList);
+    }
+
+    while(processQuantity > 0){
+        processQuantity--;
+    }
 }
