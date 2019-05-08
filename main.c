@@ -117,7 +117,7 @@ void processCreationFunctionality(processPointer *processList){
         system("cls");
 
         printf("\n\nQual o nome do primeiro processo ?\n");
-        printf("R: ");
+        printf("R: ")
         gets(processName);
 
         processPointer p = createProcess(processName);
@@ -130,20 +130,27 @@ void processCreationFunctionality(processPointer *processList){
     }
 }
 
-void addProcess(processPointer *processList, processPointer newProcess){
+void addProcess(processPointer *processList, processPointer newProcess) {
     processPointer aux = (*processList);
 
-    if((*processList) == NULL){
+    if ((*processList) == NULL) {
         *processList = newProcess;
-    } else{
-        if(aux->nextProcess == NULL){
+    } else {
+        if (aux->nextProcess == NULL) {
+            if (newProcess->processSize > aux->processSize) {
+                newProcess->nextProcess = aux;
+                aux->previousProcess = newProcess;
+                (*processList) = newProcess;
+            }
+        } else {
+            while (aux->nextProcess != NULL && aux->processSize > newProcess->processSize) {
+                aux = aux->nextProcess;
+            }
 
+            newProcess->nextProcess = aux;
+            newProcess->previousProcess = aux->previousProcess;
+            aux->previousProcess = newProcess;
+            (*processList) = newProcess;
         }
     }
-
-    while(aux->nextProcess != NULL){
-        aux = aux->nextProcess;
-    }
-
-    aux->nextProcess = newProcess;
 }
