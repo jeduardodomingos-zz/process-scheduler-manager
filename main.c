@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
+#include <Windows.h>
+
+#define DEFAULT_PAUSE 1
+#define MILLISECOND 1000
 
 struct process {
     int processPriority;
@@ -49,17 +52,18 @@ processPointer createProcess(char description[100]) {
 
 
 void presentation() {
+
     printf("----------------------------Simulador de escalonamento de processos -----------------------------\n");
     printf("---------------------------------------Seja Bem Vindo !!!----------------------------------------\n\n\n");
     system("cls");
-    sleep(1);
+    Sleep(DEFAULT_PAUSE * MILLISECOND);
 }
 
 void menu(processPointer *processList) {
     int menuSelectedOption = 0;
 
     system("cls");
-    sleep(1);
+    Sleep(DEFAULT_PAUSE * MILLISECOND);
     printf("----------------------------------------Menu de Opcoes----------------------------------------\n\n\n");
     printf("1 - Agendar Processos\n");
     printf("2 - Consultar Processos Agendados\n");
@@ -85,12 +89,12 @@ void menu(processPointer *processList) {
             break;
         case 5:
             printf("Saindo do Sistema ...");
-            sleep(1000);
+            Sleep(DEFAULT_PAUSE * MILLISECOND);
             system("exit");
             break;
         default:
             printf("A opcao selecionada nao e valida.");
-            sleep(1000);
+            Sleep(DEFAULT_PAUSE * MILLISECOND);
             menu(processList);
             break;
     }
@@ -102,7 +106,7 @@ void processCreationFunctionality(processPointer *processList){
 
     system("cls");
 
-    sleep(1000);
+    Sleep(DEFAULT_PAUSE * MILLISECOND);
 
     printf("\n\nQual a quantidade de processos que voce deseja agendar ?\n\n");
     printf("R: ");
@@ -117,8 +121,8 @@ void processCreationFunctionality(processPointer *processList){
         system("cls");
 
         printf("\n\nQual o nome do primeiro processo ?\n");
-        printf("R: ")
-        gets(processName);
+        printf("R: ");
+        fgets(processName, sizeof(processName), stdin);
 
         processPointer p = createProcess(processName);
 

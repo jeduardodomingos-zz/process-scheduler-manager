@@ -3,7 +3,7 @@ file(REMOVE_RECURSE
   "proccess_scheduler_manager.pdb"
   "proccess_scheduler_manager.exe"
   "proccess_scheduler_manager.exe.manifest"
-  "libproccess_scheduler_manager.dll.a"
+  "proccess_scheduler_manager.lib"
 )
 
 # Per-language clean rules from dependency scanning.

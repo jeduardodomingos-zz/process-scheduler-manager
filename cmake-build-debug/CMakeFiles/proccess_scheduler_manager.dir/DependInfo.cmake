@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "D:/Desenvolvimento JED/process-scheduler-manager/main.c" "D:/Desenvolvimento JED/process-scheduler-manager/cmake-build-debug/CMakeFiles/proccess_scheduler_manager.dir/main.c.obj"
+  "D:/Projetos/Unifaj/Sistemas Operacionais/proccess-scheduler-manager/main.c" "D:/Projetos/Unifaj/Sistemas Operacionais/proccess-scheduler-manager/cmake-build-debug/CMakeFiles/proccess_scheduler_manager.dir/main.c.obj"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH

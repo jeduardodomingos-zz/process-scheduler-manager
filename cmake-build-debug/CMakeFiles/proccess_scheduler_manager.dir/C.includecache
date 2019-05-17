@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-D:/Desenvolvimento JED/process-scheduler-manager/main.c
+D:/Projetos/Unifaj/Sistemas Operacionais/proccess-scheduler-manager/main.c
 stdio.h
 -
 stdlib.h
 -
 string.h
 -
-unistd.h
+Windows.h
 -
 

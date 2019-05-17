@@ -1,4 +1,4 @@
-ToolSet: 5.2 (local)@C:\MinGW
+ToolSet: 15.0 (local)@C:\Program Files (x86)\Microsoft Visual Studio\2017\Community
 Options: 
 
-Options:-DCMAKE_MAKE_PROGRAM=C:/MinGW/bin/mingw32-make.exe
+Options:
